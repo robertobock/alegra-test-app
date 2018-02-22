@@ -1,6 +1,7 @@
 // Shared env vars in all environments
 var shared = {
-    apiKey: process.env.API_KEY
+    token: process.env.USER_TOKEN,
+    userMail: process.env.USER_MAIL
 };
 
 var environments = {

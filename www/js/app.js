@@ -5,8 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', [
     'ionic',
-    'starter.controller-dashctrl',
-    'ngEnvVars'
+    'ngEnvVars',
+    'pascalprecht.translate',
+    'starter.controller-dashboard',
+    'starter.controller-app'
+
 ])
 
 .run(function($ionicPlatform) {
@@ -26,7 +29,24 @@ angular.module('starter', [
     }
   });
 })
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function(
+    $stateProvider,
+    $urlRouterProvider,
+    $translateProvider) {
+
+    $translateProvider
+    .useStaticFilesLoader({
+      prefix: 'locales/',
+      suffix: '.json'
+    })
+    .registerAvailableLanguageKeys(['en', 'es'], {
+      'en' : 'en', 'en_GB': 'en', 'en_US': 'en',
+      'es' : 'es'
+    })
+    .preferredLanguage('en')
+    .fallbackLanguage('en');
+    $translateProvider.determinePreferredLanguage();
+    $translateProvider.useSanitizeValueStrategy('escapeParameters');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -34,14 +54,45 @@ angular.module('starter', [
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-  .state('dashboard', {
-    url: '/dashboard',
-    templateUrl: './templates/dashboard.html',
-    controller: 'DashCtrl'
+  // setup an abstract state for the sidebar directive
+  .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
+
+  .state('app.dashboard', {
+    url: '/all',
+    views: {
+      'menuContent': {
+        templateUrl: './templates/all-contacts.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('app.clients', {
+    url: '/clients',
+    views: {
+      'menuContent': {
+        templateUrl: './templates/clients-contact.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('app.providers', {
+    url: '/providers',
+    views: {
+      'menuContent': {
+        templateUrl: './templates/providers-contact.html',
+        controller: 'DashCtrl'
+      }
+    }
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/app/all');
 
 });
