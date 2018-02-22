@@ -1,1 +1,15 @@
 /* Empty. Add your own CSS if you like */
+
+.spinner svg {
+  width: 13% !important;
+  height: auto !important;
+}
+
+div.spinner {
+  margin: auto;
+  text-align: center;
+}
+
+.footer-spacer{
+    height: 40px;
+}

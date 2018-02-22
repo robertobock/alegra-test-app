@@ -8,8 +8,10 @@ angular.module('starter', [
     'ngEnvVars',
     'pascalprecht.translate',
     'starter.controller-dashboard',
-    'starter.controller-app'
-
+    'starter.controller-app',
+    'starter.service-contacts',
+    'starter.service-constants',
+    'starter.service-popups'
 ])
 
 .run(function($ionicPlatform) {
