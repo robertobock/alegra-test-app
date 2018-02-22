@@ -23,5 +23,9 @@
       "version": "",
       "locator": "ios"
     }
-  ]
+  ],
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "gulp-ng-config": "^1.5.0"
+  }
 }

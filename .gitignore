@@ -36,3 +36,9 @@ coverage/
 plugins
 
 platforms
+
+.env
+
+config.json
+
+config.js
