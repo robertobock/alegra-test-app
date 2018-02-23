@@ -77,3 +77,7 @@ div.spinner {
 .recognizing-footer{
     margin-bottom: 50px;
 }
+
+input[readonly]{
+    background-color: transparent !important;
+}

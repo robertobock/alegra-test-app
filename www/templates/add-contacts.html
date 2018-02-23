@@ -1,17 +1,19 @@
-<ion-view view-title="{{'create-contact' | translate }}">
+<ion-view view-title="{{title}}">
     <ion-content class="padding recognizing-footer">
         <div class="list only-bottom-line">
             <div class="row">
                 <div class="col col-60">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"name" | translate}}</span>
-                        <input type="text" placeholder="{{'name' | translate}}">
+                        <input type="text" placeholder="{{'name' | translate}}"
+                            ng-model="newContact.name" ng-readonly="isView">
                     </label>
                 </div>
                 <div class="col col-40">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"id" | translate}}</span>
-                        <input type="text" placeholder="{{'id' | translate}}">
+                        <input type="text" placeholder="{{'id' | translate}}"
+                            ng-model="newContact.id" ng-readonly="isView">
                     </label>
                 </div>
             </div>
@@ -19,13 +21,15 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"address" | translate}}</span>
-                        <input type="text" placeholder="{{'address' | translate}}">
+                        <input type="text" placeholder="{{'address' | translate}}"
+                            ng-model="newContact.address.address" ng-readonly="isView">
                     </label>
                 </div>
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"city" | translate}}</span>
-                        <input type="text" placeholder="{{'city' | translate}}">
+                        <input type="text" placeholder="{{'city' | translate}}"
+                            ng-model="newContact.address.city" ng-readonly="isView">
                     </label>
                 </div>
             </div>
@@ -33,21 +37,24 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"email" | translate}}</span>
-                        <input type="text" placeholder="{{'email' | translate}}">
+                        <input type="text" placeholder="{{'email' | translate}}"
+                            ng-model="newContact.email" ng-readonly="isView">
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label class="item item-input item-floating-label">
-                        <span class="input-label">{{"phone1" | translate}}</span>
-                        <input type="text" placeholder="{{'phone1' | translate}}">
+                        <span class="input-label">{{"phonePrimary" | translate}}</span>
+                        <input type="text" placeholder="{{'phonePrimary' | translate}}"
+                            ng-model="newContact.phonePrimary" ng-readonly="isView">
                     </label>
                 </div>
                 <div class="col">
                     <label class="item item-input item-floating-label">
-                        <span class="input-label">{{"phone2" | translate}}</span>
-                        <input type="text" placeholder="{{'phone2' | translate}}">
+                        <span class="input-label">{{"phoneSecondary" | translate}}</span>
+                        <input type="text" placeholder="{{'phoneSecondary' | translate}}"
+                            ng-model="newContact.phoneSecondary" ng-readonly="isView">
                     </label>
                 </div>
             </div>
@@ -55,13 +62,15 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"fax" | translate}}</span>
-                        <input type="text" placeholder="{{'fax' | translate}}">
+                        <input type="text" placeholder="{{'fax' | translate}}"
+                            ng-model="newContact.fax" ng-readonly="isView">
                     </label>
                 </div>
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"mobile" | translate}}</span>
-                        <input type="text" placeholder="{{'mobile' | translate}}">
+                        <input type="text" placeholder="{{'mobile' | translate}}"
+                            ng-model="newContact.mobile" ng-readonly="isView">
                     </label>
                 </div>
             </div>
@@ -69,7 +78,8 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"observations" | translate}}</span>
-                        <input type="text" placeholder="{{'observations' | translate}}">
+                        <input type="text" placeholder="{{'observations' | translate}}"
+                            ng-model="newContact.observations" ng-readonly="isView">
                     </label>
                 </div>
             </div>
@@ -78,10 +88,10 @@
                     <ion-list>
                         <div class="row no-bottom-line">
                             <div class="col">
-                                <ion-checkbox ng-model="filter.red">{{"client" | translate}}</ion-checkbox>
+                                <ion-checkbox ng-model="type.client" ng-readonly="isView">{{"client" | translate}}</ion-checkbox>
                             </div>
                             <div class="col">
-                                <ion-checkbox ng-model="filter.yellow">{{"provider" | translate}}</ion-checkbox>
+                                <ion-checkbox ng-model="type.provider" ng-readonly="isView">{{"provider" | translate}}</ion-checkbox>
                             </div>
                         </div>
                     </ion-list>
@@ -89,9 +99,10 @@
             </div>
         </div>
     </ion-content>
-    <div class="bottom-button">
-        <button class="button button-full button-positive">
-          Full Width Block Button
+    <div class="bottom-button" ng-if="!isView">
+        <button class="button button-full button-positive"
+            ng-click="createContact()">
+          {{"createContact" | translate}}
         </button>
     </div>
 </ion-view>

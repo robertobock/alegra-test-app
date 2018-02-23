@@ -1,9 +1,20 @@
 angular.module('starter.service-constants', [])
 
 .constant(
-    "headers",
+    "constants",
     {
-        "contentType":"application/json",
-        "basic":"Basic "
+        headers: {
+            contentType:"application/json",
+            basic:"Basic "
+        },
+        types:{
+            provider:"provider",
+            client:"client"
+        },
+        texts:{
+            viewTitle:"contact",
+            creationTitle:"createContact"
+        }
     }
+
 );

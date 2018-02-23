@@ -1,4 +1,4 @@
-<a class="item item-thumbnail-left row row-center contact-item" href="#">
+<a class="item item-thumbnail-left row row-center contact-item" ng-click="viewContact()">
     <div class="col col-25">
         <img src="img/user.png" class="user-image">
     </div>
@@ -9,7 +9,7 @@
         <p>{{"mobile" | translate}}{{contact.mobile}}</p>
     </div>
     <div class="col col-15">
-        <button class="button button-clear button-assertive ">
+        <button class="button button-clear button-assertive " ng-click="deleteContact($event, contact.id)">
             <i class="icon ion-android-remove-circle delete-icon"></i>
         </button>
     </div>

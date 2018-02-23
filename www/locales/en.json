@@ -8,5 +8,18 @@
     "email":"Email: ",
     "phone":"Phone: ",
     "mobile":"Mobile: ",
-    "create-contact":"New contact"
+    "create-contact":"New contact",
+    "name":"Name",
+    "id":"ID",
+    "address":"Address",
+    "city":"City",
+    "phonePrimary":"Primary phone",
+    "phoneSecondary":"Secunday phone",
+    "fax":"Fax",
+    "mobile":"Mobile",
+    "observations":"Observations",
+    "client":"Client",
+    "provider":"Provider",
+    "createContact":"Create contact",
+    "contact":"Contact"
 }

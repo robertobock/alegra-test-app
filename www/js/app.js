@@ -13,6 +13,7 @@ angular.module('starter', [
     'starter.service-contacts',
     'starter.service-constants',
     'starter.service-popups',
+    'starter.service-objects',
     'starter.directive-item'
 ])
 
@@ -103,6 +104,10 @@ angular.module('starter', [
         templateUrl: './templates/add-contacts.html',
         controller: 'AddContactCtrl'
       }
+    },
+    params: {
+        isView: null,
+        contact: null
     }
   })
 
