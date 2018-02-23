@@ -1,97 +1,34 @@
 <ion-view view-title="{{'dashboard-title' | translate }}">
     <ion-content class="padding">
-        <div class="row" ng-if="!loaded">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class=" item-input-inset">
+            <label class="item-input-wrapper">
+                <input type="text" placeholder="Email">
+            </label>
+            <button class="button button-small">
+                Submit
+            </button>
+        </div>
+        <div class="list">
+            <al-contact-item contact="contact"
+                ng-repeat="contact in contacts"
+                    ng-click="goToDetail()">
+            </al-contact-item>
+        </div>
+        <div class="row">
             <div class="col col-100 spinner">
-                <ion-spinner icon="android"></ion-spinner>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100">
-                <h2>Todos</h2>
-            </div>
-        </div>
-        <div class="row" ng-if="loaded">
-            <div class="col col-100 footer-spacer" >
-
+                <ion-infinite-scroll
+                    on-infinite="loadMore()"
+                    ng-if="moreDataCanBeLoaded()"
+                    distance="1%">
+                </ion-infinite-scroll>
             </div>
         </div>
     </ion-content>
-    <div class="bar bar-footer">
-        <div class="title">Footer</div>
+    <div id="footer">
+        <button class="button button-clear button-balanced add-button"
+            ng-click="createContact()">
+            <i class="icon ion-ios-plus-outline add-icon"></i>
+        </button>
     </div>
 </ion-view>

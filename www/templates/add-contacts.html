@@ -1,0 +1,97 @@
+<ion-view view-title="{{'create-contact' | translate }}">
+    <ion-content class="padding recognizing-footer">
+        <div class="list only-bottom-line">
+            <div class="row">
+                <div class="col col-60">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"name" | translate}}</span>
+                        <input type="text" placeholder="{{'name' | translate}}">
+                    </label>
+                </div>
+                <div class="col col-40">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"id" | translate}}</span>
+                        <input type="text" placeholder="{{'id' | translate}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"address" | translate}}</span>
+                        <input type="text" placeholder="{{'address' | translate}}">
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"city" | translate}}</span>
+                        <input type="text" placeholder="{{'city' | translate}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"email" | translate}}</span>
+                        <input type="text" placeholder="{{'email' | translate}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"phone1" | translate}}</span>
+                        <input type="text" placeholder="{{'phone1' | translate}}">
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"phone2" | translate}}</span>
+                        <input type="text" placeholder="{{'phone2' | translate}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"fax" | translate}}</span>
+                        <input type="text" placeholder="{{'fax' | translate}}">
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"mobile" | translate}}</span>
+                        <input type="text" placeholder="{{'mobile' | translate}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">{{"observations" | translate}}</span>
+                        <input type="text" placeholder="{{'observations' | translate}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ion-list>
+                        <div class="row no-bottom-line">
+                            <div class="col">
+                                <ion-checkbox ng-model="filter.red">{{"client" | translate}}</ion-checkbox>
+                            </div>
+                            <div class="col">
+                                <ion-checkbox ng-model="filter.yellow">{{"provider" | translate}}</ion-checkbox>
+                            </div>
+                        </div>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bottom-button">
+        <button class="button button-full button-positive">
+          Full Width Block Button
+        </button>
+    </div>
+</ion-view>

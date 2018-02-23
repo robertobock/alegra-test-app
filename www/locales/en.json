@@ -4,5 +4,9 @@
     "all":"All",
     "clients":"Clients",
     "providers":"Providers",
-    "dashboard-title":"All contacts"
+    "dashboard-title":"All contacts",
+    "email":"Email: ",
+    "phone":"Phone: ",
+    "mobile":"Mobile: ",
+    "create-contact":"New contact"
 }

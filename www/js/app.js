@@ -9,9 +9,11 @@ angular.module('starter', [
     'pascalprecht.translate',
     'starter.controller-dashboard',
     'starter.controller-app',
+    'starter.controller-addContact',
     'starter.service-contacts',
     'starter.service-constants',
-    'starter.service-popups'
+    'starter.service-popups',
+    'starter.directive-item'
 ])
 
 .run(function($ionicPlatform) {
@@ -90,6 +92,16 @@ angular.module('starter', [
       'menuContent': {
         templateUrl: './templates/providers-contact.html',
         controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('app.addContact', {
+    url: '/add-contact',
+    views: {
+      'menuContent': {
+        templateUrl: './templates/add-contacts.html',
+        controller: 'AddContactCtrl'
       }
     }
   })
