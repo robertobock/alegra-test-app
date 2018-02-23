@@ -21,12 +21,17 @@ angular.module('starter.controller-dashboard', [])
         contacts.getContacts($scope.searchbar.term,countIndex,limit).then(infiniteScrollSuccess, infiniteScrollFail);
     };
 
+    // clear the index of items call
+    function clearIndex(){
+        moreItems = true;
+        countIndex = 0;
+    }
+
     //this method is used to load more items when pull to refresh excecutes
     $scope.doRefresh= function() {
         isRefreshing = true;
-        moreItems = true;
-        countIndex = 0;
-        contacts.getContacts().then(pullSuccess, pullFail);
+        clearIndex();
+        contacts.getContacts($scope.searchbar.term,countIndex,limit).then(pullSuccess, pullFail);
     };
 
     // this method is launched each time the user enters the all items view
@@ -115,13 +120,11 @@ angular.module('starter.controller-dashboard', [])
     });
 
     var timeout;
-    $scope.searching=false;
     $scope.searchTerm = function(){
         if(!timeout){
-            $scope.searching = true;
             timeout = $timeout(function () {
                 timeout = null;
-                contacts.getContacts($scope.searchbar.term,0,limit).then(manageResult, manageError);
+                $scope.doRefresh();
             }, 500);
         }
 
