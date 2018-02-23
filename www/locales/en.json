@@ -21,5 +21,7 @@
     "client":"Client",
     "provider":"Provider",
     "createContact":"Create contact",
-    "contact":"Contact"
+    "contact":"Contact",
+    "enterText":"Enter text",
+    "search":"Search"
 }

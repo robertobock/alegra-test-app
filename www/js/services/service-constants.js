@@ -1,5 +1,5 @@
 angular.module('starter.service-constants', [])
-
+//some constants that will be used on the app
 .constant(
     "constants",
     {
@@ -14,7 +14,8 @@ angular.module('starter.service-constants', [])
         texts:{
             viewTitle:"contact",
             creationTitle:"createContact"
-        }
+        },
+        maxItems:6
     }
 
 );

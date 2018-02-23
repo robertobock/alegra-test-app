@@ -81,3 +81,7 @@ div.spinner {
 input[readonly]{
     background-color: transparent !important;
 }
+
+.centered-spinner{
+    text-align: center;    
+}

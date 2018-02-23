@@ -21,5 +21,7 @@
     "client":"Cliente",
     "provider":"Proveedor",
     "createContact":"Crear contacto",
-    "contact":"Contacto"
+    "contact":"Contacto",
+    "enterText":"Introduzca texto",
+    "search":"Buscar"
 }
