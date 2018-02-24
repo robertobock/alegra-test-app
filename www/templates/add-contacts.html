@@ -1,6 +1,6 @@
 <ion-view view-title="{{title}}">
-    <ion-content class="padding recognizing-footer">
-        <div class="list only-bottom-line">
+    <ion-content class="padding allegra-recognizing-footer allegra-content-background">
+        <div class="list allegra-only-bottom-line">
             <div class="row">
                 <div class="col col-60">
                     <label class="item item-input item-floating-label">
@@ -37,7 +37,7 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"email" | translate}}</span>
-                        <input type="text" placeholder="{{'email' | translate}}"
+                        <input type="email" placeholder="{{'email' | translate}}"
                             ng-model="newContact.email" ng-readonly="isView">
                     </label>
                 </div>
@@ -46,14 +46,15 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"phonePrimary" | translate}}</span>
-                        <input type="text" placeholder="{{'phonePrimary' | translate}}"
-                            ng-model="newContact.phonePrimary" ng-readonly="isView">
+                        <input type="tel" placeholder="{{'phonePrimary' | translate}}"
+                            ng-model="newContact.phonePrimary" ng-readonly="isView"
+                                ng-pattern="onlyNumbers">
                     </label>
                 </div>
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"phoneSecondary" | translate}}</span>
-                        <input type="text" placeholder="{{'phoneSecondary' | translate}}"
+                        <input type="tel" placeholder="{{'phoneSecondary' | translate}}"
                             ng-model="newContact.phoneSecondary" ng-readonly="isView">
                     </label>
                 </div>
@@ -62,14 +63,14 @@
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"fax" | translate}}</span>
-                        <input type="text" placeholder="{{'fax' | translate}}"
+                        <input type="tel" placeholder="{{'fax' | translate}}"
                             ng-model="newContact.fax" ng-readonly="isView">
                     </label>
                 </div>
                 <div class="col">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">{{"mobile" | translate}}</span>
-                        <input type="text" placeholder="{{'mobile' | translate}}"
+                        <input type="tel" placeholder="{{'mobile' | translate}}"
                             ng-model="newContact.mobile" ng-readonly="isView">
                     </label>
                 </div>
@@ -99,7 +100,7 @@
             </div>
         </div>
     </ion-content>
-    <div class="bottom-button" ng-if="!isView">
+    <div class="allegra-bottom-button" ng-if="!isView">
         <button class="button button-full button-positive"
             ng-click="createContact()">
           {{"createContact" | translate}}

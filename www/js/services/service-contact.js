@@ -3,19 +3,20 @@ angular.module('starter.service-contacts', [])
 .factory('contacts', function($q, $timeout, $http, EnvVars, constants) {
     return {
         //this method returns all the contacts in the main view
-        getContacts : function(query = "", start = 0, limit = constants.maxItems){
+        getContacts : function(query = "", start = 0, limit = constants.maxItems, type = ""){
             var caller = $q.defer();
             var req = {
                 method: 'GET',
                 url: EnvVars.contactUrl,
                 headers: {
-                'Content-Type': constants.headers.contentType,
-                'Authorization': constants.headers.basic+btoa(EnvVars.userMail+":"+EnvVars.token)
+                    'Content-Type': constants.headers.contentType,
+                    'Authorization': constants.headers.basic+btoa(EnvVars.userMail+":"+EnvVars.token)
                 },
                 params: {
                     query: query,
                     start: start,
-                    limit: limit
+                    limit: limit,
+                    type: type
                 }
             }
             $http(req).then(manageResult, manageError);

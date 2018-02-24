@@ -1,7 +1,6 @@
 angular.module('starter.service-constants', [])
 //some constants that will be used on the app
-.constant(
-    "constants",
+.constant("constants",
     {
         headers: {
             contentType:"application/json",
@@ -15,7 +14,10 @@ angular.module('starter.service-constants', [])
             viewTitle:"contact",
             creationTitle:"createContact"
         },
-        maxItems:6
+        maxItems:6,
+        views:{
+            client:"client",
+            provider:"provider"
+        }
     }
-
 );

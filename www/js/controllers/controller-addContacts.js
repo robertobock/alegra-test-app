@@ -2,7 +2,7 @@ angular.module('starter.controller-addContact', [])
 
 .controller('AddContactCtrl', function($scope, constants, objects,
     contacts, $stateParams, $ionicHistory,
-    $filter) {
+    $filter, $ionicLoading, popups) {
     // ask if this view is called in "view" mode or in "creation" mode
     $scope.isView = $stateParams && $stateParams.isView ? true : false;
     $scope.type = objects.getTypeObj();
@@ -33,6 +33,7 @@ angular.module('starter.controller-addContact', [])
     // this method creates a new contact
     $scope.createContact = function(){
         // check for the values of type
+        $ionicLoading.show();
         if($scope.type.client){
             $scope.newContact.type.push(constants.types.client)
         }
@@ -45,11 +46,20 @@ angular.module('starter.controller-addContact', [])
 
     // this function manages the success result of the creation call
     function manageResult(result){
-        $ionicHistory.goBack()
+        $ionicHistory.goBack();
+        $ionicLoading.hide();
         console.log(result);
     }
     // this function manages the fail result of the creation call
     function manageError(error){
+        $ionicLoading.hide();
+        var data = {
+            title:"Error creando usuario",
+            message:error.data.message
+        };
+        popups.showAlertPopup(data);
         console.log(error);
     }
+    // only numbers pattern
+    $scope.onlyNumbers = /^\d+$/;
 });

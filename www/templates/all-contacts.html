@@ -1,16 +1,16 @@
 <ion-view view-title="{{'dashboard-title' | translate }}">
-    <ion-content class="padding">
-        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div class=" item-input-inset">
+    <div id="allegra-hideable-searchbar" class="allegra-top-padding allegra-show-subheader" ng-class="{'allegra-show-subheader': !slideHeader, 'allegra-hide-subheader' : slideHeader}">
+        <div class="item-input-inset allegra-searchbar-padding-top">
             <label class="item-input-wrapper">
+                <img src="img/lupa_search_address.png" class="allegra-icon-image-lupa" />
                 <input type="text" ng-model="searchbar.term" placeholder="{{ 'enterText' | translate }}"
-                    ng-change="searchTerm()">
+                    ng-change="searchTerm()" class="searchbar-input">
             </label>
-            <button class="button button-small">
-                {{ "search" | translate }}
-            </button>
         </div>
-        <div class="centered-spinner" ng-if="false">
+    </div>
+    <ion-content class="padding allegra-scroll-padding-top allegra-content-background" scroll-watch>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="allegra-centered-spinner" ng-if="false">
             <ion-spinner></ion-spinner>
         </div>
         <div class="list">
@@ -29,10 +29,10 @@
             </div>
         </div>
     </ion-content>
-    <div id="footer">
-        <button class="button button-clear button-balanced add-button"
+    <div id="allegra-footer">
+        <button class="button button-clear button-balanced allegra-add-button"
             ng-click="createContact()">
-            <i class="icon ion-ios-plus-outline add-icon"></i>
+            <i class="icon ion-ios-plus-outline allegra-add-icon"></i>
         </button>
     </div>
 </ion-view>

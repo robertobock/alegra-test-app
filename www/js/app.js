@@ -14,7 +14,8 @@ angular.module('starter', [
     'starter.service-constants',
     'starter.service-popups',
     'starter.service-objects',
-    'starter.directive-item'
+    'starter.directive-item',
+    'starter.directive-scroll-watch'
 ])
 
 .run(function($ionicPlatform) {
@@ -37,7 +38,8 @@ angular.module('starter', [
 .config(function(
     $stateProvider,
     $urlRouterProvider,
-    $translateProvider) {
+    $translateProvider,
+    constants) {
 
     $translateProvider
     .useStaticFilesLoader({
@@ -60,40 +62,49 @@ angular.module('starter', [
   $stateProvider
 
   // setup an abstract state for the sidebar directive
-  .state('app', {
-      url: '/app',
-      abstract: true,
-      templateUrl: 'templates/menu.html',
-      controller: 'AppCtrl'
+    .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
     })
 
-  .state('app.dashboard', {
-    url: '/all',
-    views: {
-      'menuContent': {
-        templateUrl: './templates/all-contacts.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
+    .state('app.dashboard', {
+        url: '/all',
+        views: {
+            'menuContent': {
+                templateUrl: './templates/all-contacts.html',
+                controller: 'DashCtrl'
+            }
+        },
+        params: {
+            type:null
+        }
+    })
 
-  .state('app.clients', {
-    url: '/clients',
-    views: {
-      'menuContent': {
-        templateUrl: './templates/clients-contact.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
+    .state('app.clients', {
+        url: '/clients',
+        views: {
+            'menuContent': {
+                templateUrl: './templates/all-contacts.html',
+                controller: 'DashCtrl'
+            }
+        },
+        params: {
+            type: constants.views.client
+        }
+    })
 
   .state('app.providers', {
     url: '/providers',
     views: {
-      'menuContent': {
-        templateUrl: './templates/providers-contact.html',
-        controller: 'DashCtrl'
-      }
+        'menuContent': {
+            templateUrl: './templates/all-contacts.html',
+            controller: 'DashCtrl'
+        }
+    },
+    params: {
+        type: constants.views.provider
     }
   })
 

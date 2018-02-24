@@ -15,9 +15,13 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$bar-subheader-height: 50px !default;
+$bar-footer-height: 44px !default;
+$button-dark-bg: #00B19D !default;
+$bar-dark-border: #00B19D !default;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-

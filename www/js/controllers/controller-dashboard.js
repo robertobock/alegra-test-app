@@ -2,14 +2,14 @@ angular.module('starter.controller-dashboard', [])
 
 .controller('DashCtrl', function($scope, EnvVars, contacts,
     popups, $ionicLoading, $state,
-        $timeout, constants) {
+        $timeout, constants, $stateParams) {
     // if it is the first time this view is loaded
     $scope.loaded = false;
     var moreItems = true;
     $scope.searchbar={
         term:""
     };
-
+    var type;
     var countIndex = 0;
     var limit = constants.maxItems;
     var isRefreshing = false;
@@ -18,7 +18,7 @@ angular.module('starter.controller-dashboard', [])
         if($scope.contacts){
             countIndex += $scope.contacts.length;
         }
-        contacts.getContacts($scope.searchbar.term,countIndex,limit).then(infiniteScrollSuccess, infiniteScrollFail);
+        contacts.getContacts($scope.searchbar.term, countIndex, limit, type).then(infiniteScrollSuccess, infiniteScrollFail);
     };
 
     // clear the index of items call
@@ -31,7 +31,7 @@ angular.module('starter.controller-dashboard', [])
     $scope.doRefresh= function() {
         isRefreshing = true;
         clearIndex();
-        contacts.getContacts($scope.searchbar.term,countIndex,limit).then(pullSuccess, pullFail);
+        contacts.getContacts($scope.searchbar.term, countIndex, limit, type).then(pullSuccess, pullFail);
     };
 
     // this method is launched each time the user enters the all items view
@@ -39,6 +39,11 @@ angular.module('starter.controller-dashboard', [])
         if($scope.loaded){
             $scope.loadMore();
         }
+    });
+
+    // this method is launched before each time the user enters the all items view
+    $scope.$on('$ionicView.beforeEnter', function() {
+        type = $stateParams.type;
     });
 
     // this method determines if there is more data to be loaded
@@ -114,9 +119,19 @@ angular.module('starter.controller-dashboard', [])
         $state.go("app.addContact");
     }
 
-    // this method is called when a contact is deleted from this view, the emiter is in "directive-item.js"
+    // this event is called when a contact is deleted from this view, the emiter is in "directive-item.js"
     $scope.$on("contactlist.updateList",function(event, data){
         $scope.contacts.splice(data.index, 1);
+    });
+
+    // this event is called when the user scrolls down
+    $scope.$on("contactlist.showSubHeader",function(event, data){
+        $scope.slideHeader = true;
+    });
+
+    // this event is called when the user scrolls up
+    $scope.$on("contactlist.hideSubHeader",function(event, data){
+        $scope.slideHeader = false;
     });
 
     var timeout;
