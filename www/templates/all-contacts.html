@@ -10,8 +10,8 @@
         </div>
     </div>
     <ion-content class="padding allegra-scroll-padding-top allegra-content-background" scroll-watch>
-        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-        <div class="allegra-centered-spinner" ng-if="false">
+        <ion-refresher on-refresh="doRefresh()" ng-if="!firstLoad"></ion-refresher>
+        <div class="allegra-centered-spinner" ng-if="firstLoad">
             <ion-spinner></ion-spinner>
         </div>
         <div class="list">
@@ -20,7 +20,7 @@
                     ng-click="goToDetail()">
             </al-contact-item>
         </div>
-        <div class="row">
+        <div class="row" ng-if="!firstLoad">
             <div class="col col-100 spinner">
                 <ion-infinite-scroll
                     on-infinite="loadMore()"

@@ -5,7 +5,7 @@ angular.module('starter.controller-dashboard', [])
         $timeout, constants, $stateParams,
             $filter) {
     // if it is the first time this view is loaded
-    $scope.loaded = false;
+    $scope.firstLoad = true;
     var moreItems = true;
     $scope.searchbar={
         term:""
@@ -38,9 +38,7 @@ angular.module('starter.controller-dashboard', [])
 
     // this method is launched each time the user enters the all items view
     $scope.$on('$ionicView.enter', function() {
-        if(!$scope.loaded){
-            $scope.loadMore();
-        }
+        $scope.doRefresh();
         $scope.showAdd = true;
     });
 
@@ -52,6 +50,9 @@ angular.module('starter.controller-dashboard', [])
     // This function manages the succes call of pull to refresh
     function pullSuccess(result){
         $scope.contacts = result;
+        if(result.length < limit){
+            moreItems = false;
+        }
         isRefreshing = false;
         manageStatus();
     }
@@ -90,7 +91,7 @@ angular.module('starter.controller-dashboard', [])
 
     // this function manages the different statuses of the pull to refresh and infinite scroll
     function manageStatus(){
-        $scope.loaded = true;
+        $scope.firstLoad = false;
         $scope.searching = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
         $scope.$broadcast('scroll.refreshComplete');

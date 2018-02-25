@@ -90,10 +90,10 @@
                     <ion-list>
                         <div class="row no-bottom-line">
                             <div class="col">
-                                <ion-checkbox ng-model="type.client" ng-readonly="isView">{{"client" | translate}}</ion-checkbox>
+                                <ion-checkbox ng-model="type.client" ng-disabled="isView">{{"client" | translate}}</ion-checkbox>
                             </div>
                             <div class="col">
-                                <ion-checkbox ng-model="type.provider" ng-readonly="isView">{{"provider" | translate}}</ion-checkbox>
+                                <ion-checkbox ng-model="type.provider" ng-disabled="isView">{{"provider" | translate}}</ion-checkbox>
                             </div>
                         </div>
                     </ion-list>
