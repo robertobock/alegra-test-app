@@ -39,6 +39,7 @@ angular.module('starter.controller-dashboard', [])
         if($scope.loaded){
             $scope.loadMore();
         }
+        $scope.showAdd = true;
     });
 
     // this method is launched before each time the user enters the all items view
@@ -132,6 +133,16 @@ angular.module('starter.controller-dashboard', [])
     // this event is called when the user scrolls up
     $scope.$on("contactlist.hideSubHeader",function(event, data){
         $scope.slideHeader = false;
+    });
+
+    // this event is called when the user scrolls down
+    $scope.$on("contactlist.showAddButton",function(event, data){
+        $scope.showAdd = true;
+    });
+
+    // this event is called when the user scrolls up
+    $scope.$on("contactlist.hideAddButton",function(event, data){
+        $scope.showAdd = false;
     });
 
     var timeout;

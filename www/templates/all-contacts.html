@@ -1,5 +1,6 @@
 <ion-view view-title="{{'dashboard-title' | translate }}">
-    <div id="allegra-hideable-searchbar" class="allegra-top-padding allegra-show-subheader" ng-class="{'allegra-show-subheader': !slideHeader, 'allegra-hide-subheader' : slideHeader}">
+    <div id="allegra-hideable-searchbar" class="allegra-top-padding allegra-show-subheader"
+        ng-class="{'allegra-show-subheader': !slideHeader, 'allegra-hide-subheader' : slideHeader}">
         <div class="item-input-inset allegra-searchbar-padding-top">
             <label class="item-input-wrapper">
                 <img src="img/lupa_search_address.png" class="allegra-icon-image-lupa" />
@@ -29,7 +30,8 @@
             </div>
         </div>
     </ion-content>
-    <div id="allegra-footer">
+    <div id="allegra-footer" class="allegra-show-add"
+        ng-class="{'allegra-show-add': showAdd, 'allegra-hide-add' : !showAdd}">
         <button class="button button-clear button-balanced allegra-add-button"
             ng-click="createContact()">
             <i class="icon ion-ios-plus-outline allegra-add-icon"></i>

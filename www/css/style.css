@@ -40,10 +40,12 @@ div.spinner {
 
 .allegra-add-icon::before{
     font-size: 4em !important;
-    background-color: white !important;
+    transform: translateX(-7px) !important;
 }
 .allegra-add-button{
-    border-radius: 55px;
+    border-radius: 100% !important;
+    width: 52px;
+    height: 52px;
     background-color: white !important;
     min-height: 3.1em !important;
     padding: 0;
@@ -139,6 +141,20 @@ input[readonly]{
     position:fixed;
     z-index: 20;
     transition: top 0.65s ease;
+}
+
+.allegra-show-add{
+    bottom:13px !important;
+    position:fixed;
+    z-index: 20;
+    transition: bottom 0.25s ease;
+}
+
+.allegra-hide-add{
+    bottom:-80px !important;
+    position:fixed;
+    z-index: 20;
+    transition: bottom 0.25s ease;
 }
 
 .allegra-icon-image-lupa{
