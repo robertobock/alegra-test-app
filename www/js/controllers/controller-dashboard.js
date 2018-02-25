@@ -14,7 +14,7 @@ angular.module('starter.controller-dashboard', [])
     $scope.title = $filter('translate')($stateParams.title);
     var countIndex = 0;
     var limit = constants.maxItems;
-    var isRefreshing = false;
+    $scope.isRefreshing = false;
     //this method is used to load more items when infinite scroll excecutes
     $scope.loadMore = function() {
         if($scope.contacts){
@@ -31,13 +31,13 @@ angular.module('starter.controller-dashboard', [])
 
     //this method is used to load more items when pull to refresh excecutes
     $scope.doRefresh= function() {
-        isRefreshing = true;
+        $scope.isRefreshing = true;
         clearIndex();
         contacts.getContacts($scope.searchbar.term, countIndex, limit, type).then(pullSuccess, pullFail);
     };
 
     // this method is launched each time the user enters the all items view
-    $scope.$on('$ionicView.enter', function() {
+    $scope.$on('$ionicView.beforeEnter', function() {
         $scope.doRefresh();
         $scope.showAdd = true;
     });
@@ -53,7 +53,7 @@ angular.module('starter.controller-dashboard', [])
         if(result.length < limit){
             moreItems = false;
         }
-        isRefreshing = false;
+        $scope.isRefreshing = false;
         manageStatus();
     }
     // This function manages the fail call of pull to refresh

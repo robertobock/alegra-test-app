@@ -20,11 +20,11 @@
                     ng-click="goToDetail()">
             </al-contact-item>
         </div>
-        <div class="row" ng-if="!firstLoad">
+        <div class="row">
             <div class="col col-100 spinner">
                 <ion-infinite-scroll
                     on-infinite="loadMore()"
-                    ng-if="moreDataCanBeLoaded()"
+                    ng-if="moreDataCanBeLoaded() && !firstLoad && !isRefreshing"
                     distance="1%">
                 </ion-infinite-scroll>
             </div>
