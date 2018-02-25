@@ -5,17 +5,19 @@ angular.module('starter.directive-scroll-watch', [])
         var threshold = 80;
         var slideHeaderPrevious = 0;
         var timer ;
-        var firstScroll ;
+        var previous;
         elem.bind('scroll', function(e) {
             if(!timer){
-                checkPrevious = e.target.scrollTop;
+                previous = e.target.scrollTop;
                 timer = $interval(function () {
-                    if(e.target.scrollTop == checkPrevious){
+                    if(e.target.scrollTop == previous){
                         $interval.cancel(timer);
                         timer = null;
                         scope.$emit("contactlist.showAddButton")
+                    }else{
+                        previous = e.target.scrollTop;
                     }
-                }, 500);
+                }, 100);
             }
             scope.$emit("contactlist.hideAddButton");
             console.log(e.target.scrollTop)

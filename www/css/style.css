@@ -53,8 +53,8 @@ div.spinner {
 }
 
 .allegra-user-image{
-    width:100%;
-    height: auto;
+    width:72px;
+    height: 72px;
 }
 
 .allegra-delete-icon::before{
