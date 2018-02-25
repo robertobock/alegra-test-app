@@ -38,7 +38,7 @@ angular.module('starter.controller-dashboard', [])
 
     // this method is launched each time the user enters the all items view
     $scope.$on('$ionicView.enter', function() {
-        if($scope.loaded){
+        if(!$scope.loaded){
             $scope.loadMore();
         }
         $scope.showAdd = true;
