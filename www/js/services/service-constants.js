@@ -17,7 +17,16 @@ angular.module('starter.service-constants', [])
         maxItems:6,
         views:{
             client:"client",
-            provider:"provider"
+            provider:"provider",
+            clients:"clients",
+            providers:"providers",
+            allContacts:"allContacts"
+        },
+        popups:{
+            confirmTitle:"confirmTitle",
+            confirmMessage:"confirmMessage",
+            alertTitle:"alertTitle",
+            alertMessage:"alertMessage"
         }
     }
 );

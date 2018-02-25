@@ -1,5 +1,6 @@
 {
     "title":"Contactos",
+    "allContacts":"Todos los contactos",
     "contacts":"Contactos",
     "all":"Todos",
     "clients":"Clientes",
@@ -23,5 +24,9 @@
     "createContact":"Crear contacto",
     "contact":"Contacto",
     "enterText":"Introduzca texto",
-    "search":"Buscar"
+    "search":"Buscar",
+    "confirmTitle":"Alerta!",
+    "confirmMessage":"Seguro que quiere borrar al contacto",
+    "error":"Error",
+    "userError":"Error de usuario"
 }

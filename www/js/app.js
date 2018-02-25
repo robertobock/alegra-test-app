@@ -78,7 +78,8 @@ angular.module('starter', [
             }
         },
         params: {
-            type:null
+            type:null,
+            title: constants.views.allContacts
         }
     })
 
@@ -91,21 +92,23 @@ angular.module('starter', [
             }
         },
         params: {
-            type: constants.views.client
+            type: constants.views.client,
+            title: constants.views.clients
         }
     })
 
   .state('app.providers', {
-    url: '/providers',
-    views: {
-        'menuContent': {
-            templateUrl: './templates/all-contacts.html',
-            controller: 'DashCtrl'
+        url: '/providers',
+        views: {
+            'menuContent': {
+                templateUrl: './templates/all-contacts.html',
+                controller: 'DashCtrl'
+            }
+        },
+        params: {
+            type: constants.views.provider,
+            title: constants.views.providers
         }
-    },
-    params: {
-        type: constants.views.provider
-    }
   })
 
   .state('app.addContact', {

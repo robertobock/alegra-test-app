@@ -1,5 +1,6 @@
 {
     "title":"Contacts",
+    "allContacts":"All contacts",
     "contacts":"Contacts",
     "all":"All",
     "clients":"Clients",
@@ -23,5 +24,9 @@
     "createContact":"Create contact",
     "contact":"Contact",
     "enterText":"Enter text",
-    "search":"Search"
+    "search":"Search",
+    "confirmTitle":"Alert!",
+    "confirmMessage":"Are you sure you want to erase the contact ",
+    "error":"Error",
+    "userError":"User error"
 }

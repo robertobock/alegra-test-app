@@ -2,14 +2,16 @@ angular.module('starter.controller-dashboard', [])
 
 .controller('DashCtrl', function($scope, EnvVars, contacts,
     popups, $ionicLoading, $state,
-        $timeout, constants, $stateParams) {
+        $timeout, constants, $stateParams,
+            $filter) {
     // if it is the first time this view is loaded
     $scope.loaded = false;
     var moreItems = true;
     $scope.searchbar={
         term:""
     };
-    var type;
+    var type = $stateParams.type;
+    $scope.title = $filter('translate')($stateParams.title);
     var countIndex = 0;
     var limit = constants.maxItems;
     var isRefreshing = false;
@@ -42,11 +44,6 @@ angular.module('starter.controller-dashboard', [])
         $scope.showAdd = true;
     });
 
-    // this method is launched before each time the user enters the all items view
-    $scope.$on('$ionicView.beforeEnter', function() {
-        type = $stateParams.type;
-    });
-
     // this method determines if there is more data to be loaded
     $scope.moreDataCanBeLoaded = function(){
         return moreItems;
@@ -61,7 +58,7 @@ angular.module('starter.controller-dashboard', [])
     // This function manages the fail call of pull to refresh
     function pullFail(error){
         var data = {
-            title:"Error de usuario",
+            title:$filter('translate')("userError"),
             message:error
         };
         popups.showAlertPopup(data);
@@ -84,7 +81,7 @@ angular.module('starter.controller-dashboard', [])
     // This function manages the fail call of infinite scroll
     function infiniteScrollFail(error){
         var data = {
-            title:"Error de usuario",
+            title:$filter('translate')("userError"),
             message:error
         };
         popups.showAlertPopup(data);
@@ -108,7 +105,7 @@ angular.module('starter.controller-dashboard', [])
     function manageError(error){
         $scope.contacts = null;
         var data = {
-            title:"Error de usuario",
+            title:$filter('translate')("userError"),
             message:error
         };
         popups.showAlertPopup(data);
