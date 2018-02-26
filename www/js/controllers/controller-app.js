@@ -4,7 +4,7 @@ angular.module('starter.controller-app', [])
     $scope.allSelected = true;
     $scope.clients= false;
     $scope.providers = false;
-
+    // this method sets the seleted image on menu bar
     $scope.selecThis = function(position){
         if(position == 1){
             $scope.allSelected = true;

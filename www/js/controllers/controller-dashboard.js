@@ -147,6 +147,7 @@ angular.module('starter.controller-dashboard', [])
         $scope.showAdd = false;
     });
 
+    // to check if there are new characters on search bar
     var timeout;
     $scope.searchTerm = function(){
         if(!timeout){
