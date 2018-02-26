@@ -6,14 +6,18 @@ angular.module('starter.controller-dashboard', [])
             $filter) {
     // if it is the first time this view is loaded
     $scope.firstLoad = true;
+    // variable to know if there are more items to be loaded
     var moreItems = true;
     $scope.searchbar={
         term:""
     };
     var type = $stateParams.type;
     $scope.title = $filter('translate')($stateParams.title);
+    //variable to count the actual position of items to be downloaded from the server
     var countIndex = 0;
+    // max quantity of contacts to load
     var limit = constants.maxItems;
+    //variable to know if right now the app is pulling to refresh, this avoid the loading icon from inifinite scroll
     $scope.isRefreshing = false;
     //this method is used to load more items when infinite scroll excecutes
     $scope.loadMore = function() {
