@@ -1,4 +1,3 @@
-/* Empty. Add your own CSS if you like */
 
 .spinner svg {
   width: 13% !important;
@@ -129,8 +128,8 @@ input[readonly]{
 #allegra-hideable-searchbar{
      width: 100%;
      height: 38px;
-     background-color: #00B19D;
-     color: #00B19D;
+     background-color: $default-color;
+     color: $default-color;
      cursor: pointer;
 }
 
