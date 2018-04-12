@@ -4,22 +4,23 @@ angular.module('starter.controller-dashboard', [])
     popups, $ionicLoading, $state,
         $timeout, constants, $stateParams,
             $filter) {
-    // if it is the first time this view is loaded
-    $scope.firstLoad = true;
-    // variable to know if there are more items to be loaded
-    var moreItems = true;
     $scope.searchbar={
         term:""
     };
+    // type of view (all contacts, only clients, only providers)
     var type = $stateParams.type;
+    // if it is the first time this view is loaded
+    $scope.firstLoad = true;
+    var moreItemsToLoad = true;
     $scope.title = $filter('translate')($stateParams.title);
-    //variable to count the actual position of items to be downloaded from the server
+    // variables to manage the indexes of loaded data from server
     var countIndex = 0;
-    // max quantity of contacts to load
     var limit = constants.maxItems;
-    //variable to know if right now the app is pulling to refresh, this avoid the loading icon from inifinite scroll
+    // variable to know if right now the app is pulling to refresh, this avoid
+    // the loading icon from inifinite scroll
     $scope.isRefreshing = false;
-    //this method is used to load more items when infinite scroll excecutes
+
+    // this method is used to load more items when infinite scroll excecutes
     $scope.loadMore = function() {
         if($scope.contacts){
             countIndex += $scope.contacts.length;
@@ -29,7 +30,7 @@ angular.module('starter.controller-dashboard', [])
 
     // clear the index of items call
     function clearIndex(){
-        moreItems = true;
+        moreItemsToLoad = true;
         countIndex = 0;
     }
 
@@ -48,14 +49,14 @@ angular.module('starter.controller-dashboard', [])
 
     // this method determines if there is more data to be loaded
     $scope.moreDataCanBeLoaded = function(){
-        return moreItems;
+        return moreItemsToLoad;
     }
 
     // This function manages the succes call of pull to refresh
     function pullSuccess(result){
         $scope.contacts = result;
         if(result.length < limit){
-            moreItems = false;
+            moreItemsToLoad = false;
         }
         $scope.isRefreshing = false;
         manageStatus();
@@ -72,7 +73,7 @@ angular.module('starter.controller-dashboard', [])
     // This function manages the succes call of infinite scroll
     function infiniteScrollSuccess(result){
         if(result.length<limit){
-            moreItems = false;
+            moreItemsToLoad = false;
         }
         if($scope.contacts){
             $scope.contacts = $scope.contacts.concat(result);

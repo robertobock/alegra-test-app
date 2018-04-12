@@ -2,8 +2,11 @@ angular.module('starter.directive-scroll-watch', [])
 .directive('scrollWatch', function($rootScope, $interval) {
     return function(scope, elem, attr) {
         var start = 0;
+        // this variable checks if the scroll has moved enough to emit an event to hide searchbar
         var threshold = 80;
+        // this variable handles the last position of scroll
         var slideHeaderPrevious = 0;
+        // timer and previous are used to calculate if the scroll is "moving" or is stopped
         var timer ;
         var previous;
         elem.bind('scroll', function(e) {

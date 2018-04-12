@@ -3,7 +3,7 @@ angular.module('starter.controller-addContact', [])
 .controller('AddContactCtrl', function($scope, constants, objects,
     contacts, $stateParams, $ionicHistory,
     $filter, $ionicLoading, popups) {
-    // ask if this view is called in "view" mode or in "creation" mode
+    // $scope.isView checks if this view is called in "view" mode or in "creation" mode
     $scope.isView = $stateParams && $stateParams.isView ? true : false;
     $scope.type = objects.getTypeObj();
 
